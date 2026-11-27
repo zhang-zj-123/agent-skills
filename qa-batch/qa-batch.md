@@ -2,7 +2,7 @@
 
 把一批学习材料批量整理成**结构固定、去重、原子化**的问答式复习资料。
 
-输入可以是文档、字幕、PDF、课件、表格，输出是一份可以直接交给 [anki-cards](https://github.com/zhang-zj-123) 出牌组的 Markdown。面向学习、面试和考证复习。
+输入可以是文档、字幕、PDF、课件、表格，输出是一份可以直接交给 [anki-cards](../anki-cards/anki-cards.md) 出牌组的 Markdown。面向学习、面试和考证复习。
 
 ---
 

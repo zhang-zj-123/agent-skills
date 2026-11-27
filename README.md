@@ -6,12 +6,22 @@
 
 | Skill | 一句话 | 输入 | 输出 |
 |---|---|---|---|
-| [anki-cards](./anki-cards/) | 把内容拆成 Anki 问答卡并打包 | 文档 / 字幕 / 笔记 / 网页 | `卡片稿.md` + `.apkg` |
-| [qa-batch](./qa-batch/) | 把一批材料整理成问答式复习资料 | 多来源文件 / 链接 / 音视频 | `复习资料_主题.md` |
+| [anki-cards](./anki-cards/anki-cards.md) | 把内容拆成 Anki 问答卡并打包 | 文档 / 字幕 / 笔记 / 网页 | `卡片稿.md` + `.apkg` |
+| [qa-batch](./qa-batch/qa-batch.md) | 把一批材料整理成问答式复习资料 | 多来源文件 / 链接 / 音视频 | `复习资料_主题.md` |
 
 ```
 多来源材料 → [qa-batch] → 复习资料_主题.md → [anki-cards] → .apkg → Anki
 ```
+
+## 文档导航
+
+| 文件 | 内容 |
+|---|---|
+| `README.md` | 本文件：仓库总览、安装、共同约定 |
+| `anki-cards/anki-cards.md` | anki-cards 完整说明：环境依赖、卡片格式、命令参数、适用场景与限制 |
+| `qa-batch/qa-batch.md` | qa-batch 完整说明：环境依赖、五段流程、来源支持清单、质量门禁 |
+| `anki-cards/SKILL.md` | anki-cards 的 Agent 工作流定义（给模型读，人可跳过） |
+| `qa-batch/SKILL.md` | qa-batch 的 Agent 工作流定义（给模型读，人可跳过） |
 
 ---
 
@@ -22,7 +32,7 @@
 - 依赖：**仅 genanki**
 - 内置 GitHub 风明暗双主题
 - 重跑更新原卡，不产生重复
-- 详见 [anki-cards/README.md](./anki-cards/README.md)
+- 详见 [anki-cards/anki-cards.md](./anki-cards/anki-cards.md)
 
 ## qa-batch
 
@@ -30,8 +40,8 @@
 
 - 依赖：**无必需第三方库**（PDF 需 pdfplumber，xlsx 需 openpyxl）
 - 五段流水线，每段可单独重跑
-- 11 条质量门禁，不通过不产出
-- 详见 [qa-batch/README.md](./qa-batch/README.md)
+- 多道质量门禁（结构 / 标签 / 内容 / 去重），不通过不产出
+- 详见 [qa-batch/qa-batch.md](./qa-batch/qa-batch.md)
 
 ---
 
@@ -74,7 +84,7 @@ git clone <this-repo>
 
 编号必须纯数字且连续，每条字段写在一行内，标签用 `::` 表达层级。
 
-## 环境说明
+## 关于 SKILL.md 中的路径
 
 仓库里的 `SKILL.md` 面向 Agent 描述工作流。其中出现的 Python 解释器路径（如 `C:\Users\...\python.exe`）是作者本机环境，换机器后改成你自己的 `python` 即可，脚本本身不含硬编码路径。
 
