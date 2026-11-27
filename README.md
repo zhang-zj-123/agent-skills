@@ -4,10 +4,10 @@
 
 两个 skill 上下游衔接，也可以各自独立使用：
 
-| Skill | 一句话 | 输入 | 输出 |
-|---|---|---|---|
+| Skill                                    | 一句话               | 输入                | 输出                 |
+| ---------------------------------------- | ----------------- | ----------------- | ------------------ |
 | [anki-cards](./anki-cards/anki-cards.md) | 把内容拆成 Anki 问答卡并打包 | 文档 / 字幕 / 笔记 / 网页 | `卡片稿.md` + `.apkg` |
-| [qa-batch](./qa-batch/qa-batch.md) | 把一批材料整理成问答式复习资料 | 多来源文件 / 链接 / 音视频 | `复习资料_主题.md` |
+| [qa-batch](./qa-batch/qa-batch.md)       | 把一批材料整理成问答式复习资料   | 多来源文件 / 链接 / 音视频  | `复习资料_主题.md`       |
 
 ```
 多来源材料 → [qa-batch] → 复习资料_主题.md → [anki-cards] → .apkg → Anki
@@ -15,13 +15,13 @@
 
 ## 文档导航
 
-| 文件 | 内容 |
-|---|---|
-| `README.md` | 本文件：仓库总览、下载与安装、共同约定 |
+| 文件                         | 内容                                     |
+| -------------------------- | -------------------------------------- |
+| `README.md`                | 本文件：仓库总览、下载与安装、共同约定                    |
 | `anki-cards/anki-cards.md` | anki-cards 完整说明：环境依赖、卡片格式、命令参数、适用场景与限制 |
-| `qa-batch/qa-batch.md` | qa-batch 完整说明：环境依赖、五段流程、来源支持清单、质量门禁 |
-| `anki-cards/SKILL.md` | anki-cards 的 Agent 工作流定义（给模型读，人可跳过） |
-| `qa-batch/SKILL.md` | qa-batch 的 Agent 工作流定义（给模型读，人可跳过） |
+| `qa-batch/qa-batch.md`     | qa-batch 完整说明：环境依赖、五段流程、来源支持清单、质量门禁    |
+| `anki-cards/SKILL.md`      | anki-cards 的 Agent 工作流定义（给模型读，人可跳过）    |
+| `qa-batch/SKILL.md`        | qa-batch 的 Agent 工作流定义（给模型读，人可跳过）      |
 
 ---
 
@@ -47,15 +47,17 @@
 
 ## 下载地址
 
-| 工具 | 用途 | 地址 |
-|---|---|---|
-| **WorkBuddy** | 运行本仓库的 skill | <https://www.workbuddy.cn/>（首页「立即下载」） |
-| WorkBuddy 文档 | 上手与功能说明 | <https://www.workbuddy.cn/docs/workbuddy/Overview> |
-| **Anki** | 导入并复习 `.apkg` 牌组 | <https://apps.ankiweb.net/> |
+| 工具            | 用途               | 地址                                                 |
+| ------------- | ---------------- | -------------------------------------------------- |
+| **WorkBuddy** | 运行本仓库的 skill     | <https://www.workbuddy.cn/>（首页「立即下载」）              |
+| WorkBuddy 文档  | 上手与功能说明          | <https://www.workbuddy.cn/docs/workbuddy/Overview> |
+| **Anki**      | 导入并复习 `.apkg` 牌组 | <https://apps.ankiweb.net/>                        |
 
-> **WorkBuddy 推荐码：`____________________`**
+> **WorkBuddy 推荐码：`ixu9ww36f9tv2p`**
 >
-> ↑ 待填写：发布前把这段占位符替换成你的推荐码。填写后新用户可获得额外额度，也支持本仓库持续更新。
+> 邀请链接：<https://www.workbuddy.cn/events/invite?inviteCode=ixu9ww36f9tv2p>
+>
+> 通过链接或填写推荐码注册，新用户可获得额外额度，也支持本仓库持续更新。
 
 ## 安装
 
@@ -64,7 +66,7 @@
 1. 安装并打开 [WorkBuddy](https://www.workbuddy.cn/)。
 2. 把仓库地址发给它，说一句：
 
-   > 把 https://github.com/zhang-zj-123/agent-skills 里的 anki-cards 和 qa-batch 安装到我的技能目录
+   > 把 <https://github.com/zhang-zj-123/agent-skills> 里的 anki-cards 和 qa-batch 安装到我的技能目录
 
 3. WorkBuddy 会把两个目录写入技能路径，**新开一个会话**后生效（技能索引在会话启动时建立）。
 4. 直接说触发词即可调用：`做成 anki卡片`、`批量问答`、`整理复习资料`。
@@ -75,10 +77,10 @@
 2. 点右上角 **Code → Download ZIP**。
 3. 解压后，把需要的目录整个复制到技能路径：
 
-   | 系统 | 技能路径 |
-   |---|---|
-   | Windows | `C:\Users\<用户名>\.workbuddy\skills\` |
-   | macOS / Linux | `~/.workbuddy/skills/` |
+   | 系统            | 技能路径                                |
+   | ------------- | ----------------------------------- |
+   | Windows       | `C:\Users\<用户名>\.workbuddy\skills\` |
+   | macOS / Linux | `~/.workbuddy/skills/`              |
 
 4. `SKILL.md` 必须位于目录第一层，结构如下：
 
@@ -107,12 +109,12 @@ python qa-batch/scripts/ingest.py --help
 
 ## 环境
 
-| 项 | 要求 |
-|---|---|
-| Python | 3.8+ |
-| anki-cards | `pip install genanki` |
-| qa-batch | 无（PDF：`pdfplumber`，xlsx：`openpyxl`） |
-| [Anki](https://apps.ankiweb.net/) | 2.1.x+（仅用于导入 apkg） |
+| 项                                 | 要求                                  |
+| --------------------------------- | ----------------------------------- |
+| Python                            | 3.8+                                |
+| anki-cards                        | `pip install genanki`               |
+| qa-batch                          | 无（PDF：`pdfplumber`，xlsx：`openpyxl`） |
+| [Anki](https://apps.ankiweb.net/) | 2.1.x+（仅用于导入 apkg）                  |
 
 ## 共同约定
 
