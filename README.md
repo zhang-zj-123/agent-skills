@@ -17,7 +17,7 @@
 
 | 文件 | 内容 |
 |---|---|
-| `README.md` | 本文件：仓库总览、安装、共同约定 |
+| `README.md` | 本文件：仓库总览、下载与安装、共同约定 |
 | `anki-cards/anki-cards.md` | anki-cards 完整说明：环境依赖、卡片格式、命令参数、适用场景与限制 |
 | `qa-batch/qa-batch.md` | qa-batch 完整说明：环境依赖、五段流程、来源支持清单、质量门禁 |
 | `anki-cards/SKILL.md` | anki-cards 的 Agent 工作流定义（给模型读，人可跳过） |
@@ -45,22 +45,65 @@
 
 ---
 
+## 下载地址
+
+| 工具 | 用途 | 地址 |
+|---|---|---|
+| **WorkBuddy** | 运行本仓库的 skill | <https://www.workbuddy.cn/>（首页「立即下载」） |
+| WorkBuddy 文档 | 上手与功能说明 | <https://www.workbuddy.cn/docs/workbuddy/Overview> |
+| **Anki** | 导入并复习 `.apkg` 牌组 | <https://apps.ankiweb.net/> |
+
+> **WorkBuddy 推荐码：`____________________`**
+>
+> ↑ 待填写：发布前把这段占位符替换成你的推荐码。填写后新用户可获得额外额度，也支持本仓库持续更新。
+
 ## 安装
 
-```bash
-git clone <this-repo>
+### 方式一：通过 WorkBuddy 安装（推荐）
+
+1. 安装并打开 [WorkBuddy](https://www.workbuddy.cn/)。
+2. 把仓库地址发给它，说一句：
+
+   > 把 https://github.com/zhang-zj-123/agent-skills 里的 anki-cards 和 qa-batch 安装到我的技能目录
+
+3. WorkBuddy 会把两个目录写入技能路径，**新开一个会话**后生效（技能索引在会话启动时建立）。
+4. 直接说触发词即可调用：`做成 anki卡片`、`批量问答`、`整理复习资料`。
+
+### 方式二：从网页下载
+
+1. 打开仓库：<https://github.com/zhang-zj-123/agent-skills>
+2. 点右上角 **Code → Download ZIP**。
+3. 解压后，把需要的目录整个复制到技能路径：
+
+   | 系统 | 技能路径 |
+   |---|---|
+   | Windows | `C:\Users\<用户名>\.workbuddy\skills\` |
+   | macOS / Linux | `~/.workbuddy/skills/` |
+
+4. `SKILL.md` 必须位于目录第一层，结构如下：
+
 ```
-
-把需要的 skill 目录放进 Agent 的 skill 路径：
-
-```bash
-# 用户级：所有项目可用
 ~/.workbuddy/skills/
-# 项目级
-<项目>/.workbuddy/skills/
+├── anki-cards/
+│   ├── SKILL.md
+│   └── scripts/
+└── qa-batch/
+    ├── SKILL.md
+    └── scripts/
 ```
 
-也可以只用脚本，不装 skill：两个项目里的 `scripts/` 都是独立命令行工具。
+5. 新开会话，说触发词即可。只想要其中一个 skill 时，只复制对应目录。
+
+技能分两级：用户级 `~/.workbuddy/skills/`（所有项目可用）、项目级 `<项目>/.workbuddy/skills/`（仅该项目）。
+
+### 方式三：只用脚本
+
+不装 skill 也能用，两个项目里的 `scripts/` 都是独立命令行工具，`--help` 查看参数：
+
+```bash
+python anki-cards/scripts/build_apkg.py --help
+python qa-batch/scripts/ingest.py --help
+```
 
 ## 环境
 
@@ -69,7 +112,7 @@ git clone <this-repo>
 | Python | 3.8+ |
 | anki-cards | `pip install genanki` |
 | qa-batch | 无（PDF：`pdfplumber`，xlsx：`openpyxl`） |
-| Anki | 2.1.x+（仅用于导入 apkg） |
+| [Anki](https://apps.ankiweb.net/) | 2.1.x+（仅用于导入 apkg） |
 
 ## 共同约定
 
@@ -87,6 +130,12 @@ git clone <this-repo>
 ## 关于 SKILL.md 中的路径
 
 仓库里的 `SKILL.md` 面向 Agent 描述工作流。其中出现的 Python 解释器路径（如 `C:\Users\...\python.exe`）是作者本机环境，换机器后改成你自己的 `python` 即可，脚本本身不含硬编码路径。
+
+## 联系
+
+- 邮箱（QQ）：<2548218881@qq.com>
+- 仓库：<https://github.com/zhang-zj-123/agent-skills>
+- 问题与建议：欢迎提 Issue
 
 ## License
 
